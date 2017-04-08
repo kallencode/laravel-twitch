@@ -1,5 +1,7 @@
 # Laravel Twitch
 
+A Laravel package to use the Twitch v5 API
+
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/kallencode/laravel-twitch.svg?style=flat-square)](https://packagist.org/packages/kallencode/laravel-twitch)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/kallencode/laravel-twitch/master.svg?style=flat-square)](https://travis-ci.org/kallencode/laravel-twitch)
