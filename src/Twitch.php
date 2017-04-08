@@ -67,16 +67,26 @@ class Twitch
      * Get Channel by ID
      *
      * @param  string $channelId Channel ID
-     * @return [type]            [description]
+     * @return Object
      */
     public function getChannelById($channelId)
     {
         return $this->performGetRequest("channels/{$channelId}");
     }
 
+    /**
+     * Get Channel Followers
+     *
+     * @param  string $channelId Channel ID
+     * @return Object
+     */
+    public function getChannelFollowers($channelId)
+    {
+        return $this->performGetRequest("channels/{$channelId}/follows");
+    }
 
-    public function performGetRequest($resource, array $query = [],
-                                                       array $headers = [])
+
+    public function performGetRequest($resource, array $query = [], array $headers = [])
     {
         return $this->client->performGetRequest($resource, $headers, $query);
     }

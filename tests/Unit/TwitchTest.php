@@ -40,7 +40,6 @@ class TwitchTest extends PHPUnit_Framework_TestCase
     /** @test */
     public function it_can_fetch_channel_by_id()
     {
-
         $this->twitchClient
             ->shouldReceive('performGetRequest')
             ->once()
@@ -69,5 +68,38 @@ class TwitchTest extends PHPUnit_Framework_TestCase
 
         $this->assertNotNull($response);
     }
+
+    public function test_it_can_fetch_channel_followers()
+    {
+        $this->twitchClient
+            ->shouldReceive('performGetRequest')
+            ->once()
+            ->andReturn([
+               "_cursor" => "1486745757722111000",
+               "_total" => 79,
+               "follows" => [
+               [
+                   "created_at" => "2016-12-14T00:32:22.963907Z",
+                   "notifications" => false,
+                   "user" => [
+                       "_id" => "129454141",
+                       "bio" => null,
+                       "created_at" => "2016-07-13T14:40:42.398257Z",
+                       "display_name" => "dallasnchains",
+                       "logo" => null,
+                       "name" => "dallasnchains",
+                       "type" => "user",
+                       "updated_at" => "2016-12-14T00:32:16.263122Z"
+                   ]
+               ]
+               ]
+           ]);
+
+        $response = $this->twitch->getChannelFollowers(44322889);
+
+        $this->assertNotNull($response);
+    }
+
+
 
 }
